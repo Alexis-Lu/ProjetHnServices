@@ -1,0 +1,41 @@
+<h1 *ngIf="id">Update User</h1>
+<h1 *ngIf="!id">Create User</h1>
+<div class="container">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <label for="firstname">First name:</label>
+    <input
+      type="text"
+      id="firstname"
+      name="firstname"
+      required
+      formControlName="firstname"
+    />
+
+    <label for="lastname">Name:</label>
+    <input
+      type="text"
+      id="lastname"
+      name="lastname"
+      required
+      formControlName="name"
+    />
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      formControlName="email"
+    />
+
+    <label for="userType">User Types:</label>
+    <select id="userType" name="userType" formControlName="userType">
+      <option *ngFor="let item of userTypeList$" [ngValue]="item.name">
+        {{ item.name }}
+      </option>
+    </select>
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th class="thId" (click)="sortOn('index')">Id</th>
+          <th class="thFirstname" (click)="sortOn('firstname')">Firstname</th>
+          <th class="thName" (click)="sortOn('name')">Name</th>
+          <th class="thEmail" (click)="sortOn('email')">Email</th>
+          <th class="thUserType" (click)="sortOn('userType')">UserType</th>
+          <th class="thActions">Actions</th>
+        </tr>
+      </thead>
+      <tr
+        class="trClickable"
+        *ngFor="let item of data"
+        routerLink="viewUser/{{ item.id }}"
+      >
+        <td>{{ item.id }}</td>
+        <td>{{ item.firstname | titlecase }}</td>
+        <td>{{ item.name | titlecase }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+          {{ item.userType.name | titlecase }}
+        </td>
+        <td class="actionsContainer">
+          <button (click)="onDeleteUser(item.id)">Delete</button>
+          <button routerLink="updateUser/{{ item.id }}">Modify</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="containerButton">
+    <button routerLink="newUser">Create</button>
+  </div>
+</div>

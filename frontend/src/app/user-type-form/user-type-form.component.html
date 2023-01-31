@@ -1,0 +1,10 @@
+<h1 *ngIf="id">Update User Type</h1>
+<h1 *ngIf="!id">Create User Type</h1>
+<div class="container">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required formControlName="name" />
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+</div>

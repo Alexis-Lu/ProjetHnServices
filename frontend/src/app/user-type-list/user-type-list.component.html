@@ -1,0 +1,25 @@
+<p class="error" *ngIf="error">Cannot delete this User Type is used</p>
+<div>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th class="thId" (click)="onSort()">Id</th>
+          <th class="thName">Name</th>
+          <th class="thActions">Actions</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name | titlecase }}</td>
+        <td class="actionsContainer">
+          <button (click)="onDeleteUserType(item.id)">Delete</button>
+          <button routerLink="/updateUserType/{{ item.id }}">Modify</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="containerButton">
+    <button routerLink="/newUserType">Create</button>
+  </div>
+</div>
