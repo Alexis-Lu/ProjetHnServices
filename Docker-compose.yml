@@ -11,7 +11,7 @@ services:
       - dbdata:/var/lib/mysql
 
   api:
-    build: /backend
+    build: ./backend
     container_name: backend
     depends_on:
       - db
@@ -23,7 +23,7 @@ services:
       - "8080:8080"
 
   client:
-    build: /frontend
+    build: ./frontend
     container_name: frontend
     depends_on:
       - api
