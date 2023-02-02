@@ -1,9 +1,8 @@
-FROM node:latest as node
-RUN /app
+FROM node:latest as build
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build --prod
+RUN npm run build 
 
-FROM nginx:alpine
-COPY --from=node /app/dist/frontend /usr/share/nginx/html
+FROM nginx:latest
+COPY --from=build /app/dist/frontend /usr/share/nginx/html
